@@ -4,7 +4,7 @@ output:
   html_document:
     keep_md: true
 ---
-# Reproducible Research : Assignment 1 (cousera)
+# Reproducible Research : Assignment 1
 
 ## Loading and preprocessing the data
 First, the activity monitoring data set is loaded into a data frame variable.
