@@ -33,7 +33,7 @@ hist(spd$x,breaks=16, col="red",
 meanSpd <- mean(spd$x,na.rm=TRUE)
 medSpd <- median(spd$x, na.rm=TRUE)
 ```
-We find the  mean and median tola number of steps take per day are 1.0766 &times; 10<sup>4</sup> and the median is 10765, respectively.
+We find the  mean and median tola number of steps take per day are **1.0766 &times; 10<sup>4</sup>** and the median is **10765**, respectively.
 
 ## What is the average daily activity pattern?
 Here is a time series plot of the 5-minute interval and the average number of steps taken across all day:
@@ -45,19 +45,19 @@ plot(avdp$interval, avdp$x, type="l",
   xlab="5-minute interval id", ylab="number of steps")
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
 
 ```r
 mint <- avdp[avdp$x == max(avdp$x),"interval"]
 ```
-The 5-minute interval identifier that contains the maximum number of steps is 835.
+The 5-minute interval identifier that contains the maximum number of steps is **835**.
 ## Imputing missing values
 
 
 ```r
 naRow <- sum(is.na(data$steps))
 ```
-The number of missing data in the steps column is 2304, which might affect the results.
+The number of missing data in the steps column is **2304**, which might affect the results.
 We introduce a strategy filling in all of the missing values in the data set, using the mean
 for the corresponding 5-minute interval, and create a new data set  with the missing data filled in.
 
@@ -81,13 +81,13 @@ hist(spdAdj$x,breaks=16, col="blue",
      xlab="total number of steps")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 ```r
 meanSpdAdj <- mean(spdAdj$x)
 medSpdAdj <- median(spdAdj$x)
 ```
-The mean and median tola number of steps take per day are 1.0766 &times; 10<sup>4</sup> and 1.0766 &times; 10<sup>4</sup>,
+The mean and median tola number of steps take per day are **1.0766 &times; 10<sup>4</sup>** and **1.0766 &times; 10<sup>4</sup>**,
 respectively. This shows the impact of imputting missing data on the estimates of the total daily number of steps is very negligible.
 
 ## Are there differences in activity patterns between weekdays and weekends?
@@ -125,6 +125,6 @@ with(subset(wdAvdp,wdAvdp$category == "weekends"),
      )
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
 We found that there are differences in activity patterns between weekdays and weekends. During the weekdays, the peak activity period is found in the morning. On the other hand, we see more than one peaks over the day time during weekends.

@@ -23,10 +23,12 @@ spd <- aggregate(data$steps,by=list(data$date),FUN=sum)
 hist(spd$x,breaks=16, col="red", 
   main="Total number of steps taken each day", 
   xlab="total number of steps")
+```
+```{r,results='asis'}
 meanSpd <- mean(spd$x,na.rm=TRUE)
 medSpd <- median(spd$x, na.rm=TRUE)
 ```
-We find the  mean and median tola number of steps take per day are `r meanSpd` and the median is `r medSpd`, respectively.
+We find the  mean and median tola number of steps take per day are **`r meanSpd`** and the median is **`r medSpd`**, respectively.
 
 ## What is the average daily activity pattern?
 Here is a time series plot of the 5-minute interval and the average number of steps taken across all day:
@@ -35,15 +37,17 @@ avdp <- aggregate(data$steps,by=list(interval=data$interval),FUN=mean, na.rm=TRU
 plot(avdp$interval, avdp$x, type="l",
   main="Average number of steps taken across all days",
   xlab="5-minute interval id", ylab="number of steps")
+```
+```{r}
 mint <- avdp[avdp$x == max(avdp$x),"interval"]
 ```
-The 5-minute interval identifier that contains the maximum number of steps is `r mint`.
+The 5-minute interval identifier that contains the maximum number of steps is **`r mint`**.
 ## Imputing missing values
 
 ```{r}
 naRow <- sum(is.na(data$steps))
 ```
-The number of missing data in the steps column is `r naRow`, which might affect the results.
+The number of missing data in the steps column is **`r naRow`**, which might affect the results.
 We introduce a strategy filling in all of the missing values in the data set, using the mean
 for the corresponding 5-minute interval, and create a new data set  with the missing data filled in.
 
@@ -63,11 +67,12 @@ spdAdj <- aggregate(dataAdj$steps,by=list(dataAdj$date),FUN=sum)
 hist(spdAdj$x,breaks=16, col="blue", 
      main="Total number of steps taken each day(after inputting missing data)",
      xlab="total number of steps")
-
+```
+```{r}
 meanSpdAdj <- mean(spdAdj$x)
 medSpdAdj <- median(spdAdj$x)
 ```
-The mean and median tola number of steps take per day are `r meanSpdAdj` and `r medSpdAdj`,
+The mean and median tola number of steps take per day are **`r meanSpdAdj`** and **`r medSpdAdj`**,
 respectively. This shows the impact of imputting missing data on the estimates of the total daily number of steps is very negligible.
 
 ## Are there differences in activity patterns between weekdays and weekends?
